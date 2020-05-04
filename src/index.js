@@ -7,7 +7,7 @@ const MyCheckbox = ({ label, items = [], handler = () => {} }) => {
     }
 
     return (
-        <div>
+        <Fragment>
             <label htmlFor={label}>{label}</label>
             {
                 items.map((item, index) => {
@@ -23,7 +23,7 @@ const MyCheckbox = ({ label, items = [], handler = () => {} }) => {
                     )
                 })
             }
-        </div>
+        </Fragment>
     )
 }
 
