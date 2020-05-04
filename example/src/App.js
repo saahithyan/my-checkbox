@@ -1,10 +1,35 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-import { ExampleComponent } from 'my-checkbox'
+import MyCheckbox from 'my-checkbox'
 import 'my-checkbox/dist/index.css'
 
-const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+class App extends Component {
+    state = {
+        items: [
+            { txt: 'item 1', checked: false },
+            { txt: 'item 2', checked: true }
+        ]
+    }
+
+    handler (item, index) {
+        const items = [...this.state.items]
+        items[index] = item
+
+        this.setState({ items })
+    }
+
+    render () {
+        const { items } = this.state
+
+        return (
+            <MyCheckbox
+                label='My Checkbox heading'
+                items={items}
+                handler={() => this.handler()}
+            />
+        )
+    }
+
 }
 
 export default App
