@@ -11,10 +11,7 @@ class App extends Component {
         ]
     }
 
-    handler (item, index) {
-        const items = [...this.state.items]
-        items[index] = item
-
+    handler (refer, items) {
         this.setState({ items })
     }
 
@@ -23,13 +20,13 @@ class App extends Component {
 
         return (
             <MyCheckbox
+                refer='my-id' // will come in handy
                 label='My Checkbox heading'
                 items={items}
-                handler={() => this.handler()}
+                handler={this.handler.bind(this)}
             />
         )
     }
-
 }
 
 export default App
