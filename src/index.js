@@ -1,14 +1,7 @@
 import React, { Fragment } from 'react'
 
-const MyCheckbox = ({ label, items = [], refer, handler = () => {} }) => {
-    // const toggleCheckbox = (item, index, value) => {
-    //     const arr = [...items]
-    //
-    //     item.checked = value
-    //     arr[index] = item
-    //
-    //     handler(refer, arr)
-    // }
+const MyCheckbox = ({ label, items = [], value = [], me, handler = () => {} }) => {
+    items = value.length > 0 ? value : JSON.parse(JSON.stringify(items))
 
     const handleItem = index => {
         const item = items[index]
@@ -16,7 +9,7 @@ const MyCheckbox = ({ label, items = [], refer, handler = () => {} }) => {
 
         items[index] = item
 
-        handler(refer, items)
+        handler(me, items)
     }
 
     return (
@@ -30,7 +23,6 @@ const MyCheckbox = ({ label, items = [], refer, handler = () => {} }) => {
                                 type="checkbox"
                                 checked={item.checked}
                                 onChange={() => {}} // only to skip react warning
-                                // onChange={event => toggleCheckbox(item, index, event.target.checked)}
                             />
                             <label htmlFor={item.txt}>{item.txt}</label>
                         </div>
