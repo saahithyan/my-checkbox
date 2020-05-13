@@ -168,6 +168,76 @@ class App extends Component {
 
 export default App
 ```
+
+
+## Plug your Style
+You can plug any style you like. First create an object with following
+keys and values of preferred class names. Second pass that object as a prop to MyCheckbox
+component.
+
+- label ( heading text )
+- check ( checkbox style )
+- txt ( item text style )
+
+Example of such object would something like this
+
+```jsx
+const style = {
+    label: 'class-name', // can one class name
+    check: '', // can leave blank
+    txt: 'class-name-1 class-name-2' // can add multiple class names
+}
+```
+
+This flexible structure allows you to plug any styles on the fly. Here is an
+example where I used boostrap css. You can plug with any style you like.
+
+####Example 1: with bootstrap-css
+```jsx
+import React, { Component } from 'react'
+import MyCheckbox from 'my-checkbox'
+import 'bootstrap-css'
+
+const fruits = [
+    { txt: 'Apples', checked: false },
+    { txt: 'Oranges', checked: true }
+]
+
+const style = {
+    label: 'display-4',
+    check: '',
+    txt: 'col-md-2 text-muted'
+}
+
+class App extends Component {
+    state = {
+        favouriteFruits: []
+    }
+
+    handler (me, value) {
+        this.setState({ favouriteFruits: value })
+    }
+
+    render () {
+        const { favouriteFruits } = this.state
+
+        return (
+            <div className="container">
+                <MyCheckbox
+                    items={fruits}
+                    style={style}
+                    value={favouriteFruits}
+                    label='Peters favourite fruits'
+                    handler={this.handler.bind(this)}
+                />
+            </div>
+        )
+    }
+}
+
+export default App
+```
+
 ## License
 
 MIT © [saahithyan](https://github.com/saahithyan)

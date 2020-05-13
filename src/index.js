@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-const MyCheckbox = ({ label, items = [], value = [], me, handler = () => {} }) => {
+const MyCheckbox = ({ label, me, items = [], value = [], style = {}, handler = () => {} }) => {
     items = value.length > 0 ? value : JSON.parse(JSON.stringify(items))
 
     const handleItem = index => {
@@ -14,7 +14,7 @@ const MyCheckbox = ({ label, items = [], value = [], me, handler = () => {} }) =
 
     return (
         <Fragment>
-            <label htmlFor={label}>{label}</label>
+            <label htmlFor={label} className={style.label}>{label}</label>
             {
                 items.map((item, index) => {
                     return (
@@ -24,7 +24,7 @@ const MyCheckbox = ({ label, items = [], value = [], me, handler = () => {} }) =
                                 checked={item.checked}
                                 onChange={() => {}} // only to skip react warning
                             />
-                            <label htmlFor={item.txt}>{item.txt}</label>
+                            <label htmlFor={item.txt} className={style.txt}>{item.txt}</label>
                         </div>
                     )
                 })
