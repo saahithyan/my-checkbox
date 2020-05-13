@@ -50,7 +50,7 @@ export default App
 ```
 
 #### Multiple instances of MyCheckbox
-##### eg: 1
+##### eg: 1 with single item list
 ```jsx
 import React, { Component } from 'react'
 import MyCheckbox from 'my-checkbox'
@@ -99,7 +99,7 @@ class App extends Component {
 export default App
 ```
 
-##### eg: 2
+##### eg: 2 with multiple item list
 
 ```jsx
 import React, { Component } from 'react'
