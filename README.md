@@ -183,9 +183,9 @@ Example of such object would something like this
 
 ```jsx
 const style = {
-    label: 'class-name', // can one class name
-    check: '', // can leave blank
-    txt: 'class-name-1 class-name-2' // can add multiple class names
+    label: 'class-name', // one class name
+    check: '', // no class name
+    txt: 'class-name-1 class-name-2' // multiple class names
 }
 ```
 

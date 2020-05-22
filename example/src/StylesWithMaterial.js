@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import MyCheckbox from 'my-checkbox'
-import 'materialize-css/dist/css/materialize.css'
 
 const fruits = [
     { txt: 'Apples', checked: false },
@@ -34,6 +33,7 @@ class App extends Component {
                     label='Peters favourite fruits'
                     handler={this.handler.bind(this)}
                 />
+                <button className='mdc-button foo-button mdc-button__ripple mdc-button__label'>Click Me</button>
             </div>
         )
     }
